@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from core.models.db import Base
 from sqlalchemy.orm import Session
+from core.schemas.todo import CreateItem, ItemBase
 
 
 class TODOS(Base):
@@ -9,24 +10,6 @@ class TODOS(Base):
    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
    title = Column(String, index=True)
    description = Column(String, index=True)
-
-from typing import List, Optional
-from pydantic import BaseModel
-
-
-class ItemBase(BaseModel):
-
-   title: str
-   description: Optional[str] = None
-
-   class Config:
-      orm_mode = True
-
-
-class CreateItem(ItemBase):
-   id: int
-   title: str
-   description: Optional[str] = None
 
 
 def get_item_by_id(db: Session, item_id: int):
