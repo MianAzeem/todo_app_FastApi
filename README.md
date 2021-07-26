@@ -22,6 +22,7 @@ This guide specifies how to setup this project for development environment.
 ## Api Endpoints:
 1 - **get todo item by id:**
 > GET url -> base_url/item/{item_id}
+
 2 - **create todo item:**
 > POST url -> base_url/item
 ```
@@ -33,7 +34,7 @@ request body
 }
 ```
 3 - **update todo item:**
-> POST url -> base_url/item/{item_id}
+> PUT url -> base_url/item/{item_id}
 ```
 request body
 {
